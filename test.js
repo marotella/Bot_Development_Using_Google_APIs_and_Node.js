@@ -9,12 +9,12 @@ const {
     searchFile
 } = require('./index2.js')
 
-    const spreadsheetId = '1U6NMJvXl6LW3WGllW-juoFzRbmBZ4G_X6JvZBR3MXE4';
+    const spreadsheetId = 'spreadsheetId';
     const sheetName = 'Sheet1!D2:D6';
     var testData = '';
     var categoryArray = [];
 
-    const folderId = '1XG94SB-OSfGbUuyEnbkUvfsw9mWBfgXG';
+    const folderId = 'folderId';
     var subFoldersId = [];
 
 
