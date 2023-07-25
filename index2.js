@@ -1,16 +1,16 @@
 // Summary: Get information from the Google folder.
 
-//Import modules from 'googleapis' library to access Google Drive API.
+//Import modules from 'googleapis' library to access Google Drive API
 const { google } = require('googleapis');
 
-//Define the required scope for accessing Google Sheets API.
+//Define the required scope for accessing Google Sheets API
 const SCOPES = ['https://www.googleapis.com/auth/drive'];
 
 
 /**
  * Searches for files within a specific folder in Google Drive.
- * @param {string} folderId - The ID of the target folder in Google Drive.
- * @returns {Promise<Object>} - A Promise that resolves to the response containing the list of files found in the folder.
+ * @param {string} folderId - The ID of the target folder in Google Drive
+ * @returns {Promise<Object>} - A Promise that resolves to the response containing the list of files found in the folder
  **/
 async function searchFile(folderId){
 
