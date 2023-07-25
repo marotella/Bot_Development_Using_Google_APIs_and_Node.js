@@ -92,12 +92,62 @@ async function testGetFolders(){
         var element = '';
         // Iterate through the categoryArray to select an image link randomly based on the category
         for (var i = 0; i < categoryArray.length; i++){
-            if (categoryArray[i] == 'Art'){
-                const tempA = map.get('Art');
+            categoryElement = categoryArray[i];
+            if (categoryElement !== undefined){
+                categoryElement = categoryElement.toLowerCase();
+            }
+            if (categoryElement == 'math'){
+                const tempA = map.get('Math');
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'pre-Med & health sciences'){
+                const tempA = map.get('Pre-Med & Health Sciences');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'business & finance'){
+                const tempA = map.get('Business & Finance');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'computer science'){
+                const tempA = map.get('Computer Science');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'creative writing & journalism'){
+                const tempA = map.get('Creative Writing & Journalism');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'history'){
+                const tempA = map.get('History');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'us government & politics'){
+                const tempA = map.get('US Government & Politics');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'physics'){
+                const tempA = map.get('Physics');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'biology'){
+                const tempA = map.get('Biology');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'chemistry'){
+                const tempA = map.get('Chemistry');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'english & journalism'){
+                const tempA = map.get('English & Journalism');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'foreign language'){
+                const tempA = map.get('Foreign Language');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'theatre & acting'){
+                const tempA = map.get('Theatre & Acting');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'engineering'){
+                const tempA = map.get('Engineering');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'pre-law'){
+                const tempA = map.get('Pre-Law');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement == 'social science'){
+                const tempA = map.get('Social Science');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement === undefined){
+                element = '';
             }else{
-                const tempA = map.get('Crypto');
-                element = tempA[(Math.floor(Math.random() * tempA.length))];
+                element = '';
             }
             // Prepare the image link to be updated in the spreadsheet
             const tempVal = [];
