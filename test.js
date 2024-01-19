@@ -1,5 +1,7 @@
 // Import the required modules and functions from other files
 const { google } = require('googleapis');
+const credentials = require("./credentials.json");
+
 const {
     getAuthToken,
     getSpreadSheetValues,
@@ -11,12 +13,12 @@ const {
 } = require('./index2.js')
 
 // Define spreadsheet and folder IDs, and initialize variables
-const spreadsheetId = 'spreadsheetId';
-const sheetName = 'Sheet1!D2:D6';
+const spreadsheetId = '1NXn0Zhq7QWOPYLVouCSG_WlH7yh8L9_3J_KxxGkTnY4'; //This should be the unique id from the sheet you are working with
+const sheetName = 'Northwestern!D2:F'; //This should be replaced with the sheet name and the columns that include categories
 var testData = '';
 var categoryArray = [];
 
-const folderId = 'folderId';
+const folderId = '1cue-OTHq2V62T0vc-tWuSrQ1x4yeht5p'; //This should be the unique id from the stock folders url
 var subFoldersId = [];
 
 
@@ -34,7 +36,7 @@ async function testGetSpreadSheetValues() {
         // Get spreadsheet values from the specified sheet
         const response = await getSpreadSheetValues({
             spreadsheetId,
-            sheetName,
+            ran: 'Northwestern!D2:F', // This should include the name of the tab you are working with and columns for categories
             auth
         })
         // Extract the values from the response and populate categoryArray
@@ -88,7 +90,7 @@ async function testGetFolders(){
         console.log(map);
 
         // Define the range in the spreadsheet to be updated
-        const range = 'Sheet1!AT2:AT6';
+        const range = 'Northwestern!AV2:AV'; //This should include the name of the tab you are working with and the columns for image links
         var element = '';
         // Iterate through the categoryArray to select an image link randomly based on the category
         for (var i = 0; i < categoryArray.length; i++){
@@ -96,56 +98,84 @@ async function testGetFolders(){
             if (categoryElement !== undefined){
                 categoryElement = categoryElement.toLowerCase();
             }
-            if (categoryElement == 'math'){
-                const tempA = map.get('Math');
+            if (categoryElement == 'math'){ //
+                const tempA = map.get('Math');//
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
-            }else if (categoryElement == 'pre-Med & health sciences'){
+            }else if (categoryElement == 'pre-Med & health sciences'){ //
                 const tempA = map.get('Pre-Med & Health Sciences');
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
-            }else if (categoryElement == 'business & finance'){
-                const tempA = map.get('Business & Finance');
+            }else if (categoryElement == 'business & finance'){//
+                const tempA = map.get('Business & Finance');//
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
             }else if (categoryElement == 'computer science'){
-                const tempA = map.get('Computer Science');
+                const tempA = map.get('Computer Science');//
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
             }else if (categoryElement == 'creative writing & journalism'){
                 const tempA = map.get('Creative Writing & Journalism');
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
-            }else if (categoryElement == 'history'){
+            }else if (categoryElement == 'history'){//
                 const tempA = map.get('History');
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
             }else if (categoryElement == 'us government & politics'){
-                const tempA = map.get('US Government & Politics');
+                const tempA = map.get('US Government & Politics');//
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
             }else if (categoryElement == 'physics'){
-                const tempA = map.get('Physics');
+                const tempA = map.get('Physics');//
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
-            }else if (categoryElement == 'biology'){
+            }else if (categoryElement == 'biology'){//
                 const tempA = map.get('Biology');
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
-            }else if (categoryElement == 'chemistry'){
+            }else if (categoryElement == 'chemistry'){//
                 const tempA = map.get('Chemistry');
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
-            }else if (categoryElement == 'english & journalism'){
+            }else if (categoryElement == 'english & journalism'){//
                 const tempA = map.get('English & Journalism');
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
             }else if (categoryElement == 'foreign language'){
-                const tempA = map.get('Foreign Language');
+                const tempA = map.get('Foreign Language');//
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
             }else if (categoryElement == 'theatre & acting'){
-                const tempA = map.get('Theatre & Acting');
+                const tempA = map.get('Theatre & Acting');//
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
             }else if (categoryElement == 'engineering'){
-                const tempA = map.get('Engineering');
+                const tempA = map.get('Engineering');//
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
             }else if (categoryElement == 'pre-law'){
-                const tempA = map.get('Pre-Law');
+                const tempA = map.get('Pre-Law');//
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
-            }else if (categoryElement == 'social science'){
-                const tempA = map.get('Social Science');
+            }else if (categoryElement == 'social sciences'){
+                const tempA = map.get('Social Sciences');//
                 element = tempA[(Math.floor(Math.random() * tempA.length))];
             }else if (categoryElement === undefined){
-                element = '';
+                const tempA = map.get('Generic');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement === 'art'){//
+                const tempA = map.get('Art');
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement === 'music'){
+                const tempA = map.get('Music');//
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement === 'environmental & marine science'){
+                const tempA = map.get('Environmental & Marine Science');//
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement === 'architecture'){
+                const tempA = map.get('Architecture');//
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement === 'pre-vet'){
+                const tempA = map.get('Pre-vet');//
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement === 'international relations'){
+                const tempA = map.get('International Relations');//
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement === 'film & screenwriting'){
+                const tempA = map.get('Film & Screenwriting');//
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement === 'arabic'){
+                const tempA = map.get('Arabic');//
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
+            }else if (categoryElement === 'aerospace & planetary science'){
+                const tempA = map.get('Aerospace & Planetary Science');//
+                element = tempA[(Math.floor(Math.random() * tempA.length))];
             }else{
                 element = '';
             }

@@ -5,6 +5,7 @@ const { google } = require('googleapis');
 
 //Define the required scope for accessing Google Sheets API
 const SCOPES = ['https://www.googleapis.com/auth/drive'];
+const credentials = require("./credentials.json");
 
 
 /**
@@ -15,8 +16,10 @@ const SCOPES = ['https://www.googleapis.com/auth/drive'];
 async function searchFile(folderId){
 
     // Create an authentication instance with the specified scopes
+
     const auth = new google.auth.GoogleAuth({
-        scopes: SCOPES
+        credentials,
+        scopes: SCOPES,
     });
 
     // Create a Google Drive API instance

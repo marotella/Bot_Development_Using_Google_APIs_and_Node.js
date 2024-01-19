@@ -6,6 +6,7 @@ const sheets = google.sheets('v4');
 
 //Define the required scope for accessing Google Sheets API
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
+const credentials = require("./credentials.json");
 
 /**
  * Retrieves an authentication token to access Google Sheets API.
@@ -13,6 +14,7 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
  */
 async function getAuthToken() {
     const auth = new google.auth.GoogleAuth({
+        credentials,
         scopes: SCOPES
     });
     const authToken = await auth.getClient();
