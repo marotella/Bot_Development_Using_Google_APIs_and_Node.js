@@ -13,12 +13,12 @@ const {
 } = require('./index2.js')
 
 // Define spreadsheet and folder IDs, and initialize variables
-const spreadsheetId = '1NXn0Zhq7QWOPYLVouCSG_WlH7yh8L9_3J_KxxGkTnY4'; //This should be the unique id from the sheet you are working with
-const sheetName = 'Northwestern!D2:F'; //This should be replaced with the sheet name and the columns that include categories
+const spreadsheetId = 'spreadsheetid'; //This should be the unique id from the sheet you are working with
+const sheetName = 'Sheet!D2:F'; //This should be replaced with the sheet name and the columns that include categories
 var testData = '';
 var categoryArray = [];
 
-const folderId = '1cue-OTHq2V62T0vc-tWuSrQ1x4yeht5p'; //This should be the unique id from the stock folders url
+const folderId = 'folderid'; //This should be the unique id from the stock folders url
 var subFoldersId = [];
 
 
@@ -36,7 +36,7 @@ async function testGetSpreadSheetValues() {
         // Get spreadsheet values from the specified sheet
         const response = await getSpreadSheetValues({
             spreadsheetId,
-            ran: 'Northwestern!D2:F', // This should include the name of the tab you are working with and columns for categories
+            ran: 'Sheet!D2:F', // This should include the name of the tab you are working with and columns for categories
             auth
         })
         // Extract the values from the response and populate categoryArray
@@ -90,7 +90,7 @@ async function testGetFolders(){
         console.log(map);
 
         // Define the range in the spreadsheet to be updated
-        const range = 'Northwestern!AV2:AV'; //This should include the name of the tab you are working with and the columns for image links
+        const range = 'Sheet!AV2:AV'; //This should include the name of the tab you are working with and the columns for image links
         var element = '';
         // Iterate through the categoryArray to select an image link randomly based on the category
         for (var i = 0; i < categoryArray.length; i++){
